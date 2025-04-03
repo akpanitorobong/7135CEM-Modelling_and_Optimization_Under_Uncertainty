@@ -1,0 +1,227 @@
+[System]
+Name='Assisted Home FLC System - Common Area'
+Type='mamdani'
+Version=2.0
+NumInputs=10
+NumOutputs=9
+NumRules=47
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Patient Temperature'
+Range=[30 45]
+NumMFs=3
+MF1='Low':'trimf',[30 35 36.5]
+MF2='Normal':'trimf',[36 37 38]
+MF3='High':'trimf',[37.5 40 45]
+
+[Input2]
+Name='Blood Pressure'
+Range=[50 180]
+NumMFs=5
+MF1='Low':'trimf',[50 50 90]
+MF2='Normal':'gaussmf',[10 100]
+MF3='Prehypertension':'trapmf',[110 120 130 140]
+MF4='Hypertension Stage 1 ':'trapmf',[130 140 150 160]
+MF5='Hypertension Stage 2 ':'trimf',[150 180 180]
+
+[Input3]
+Name='Heart Rate'
+Range=[40 150]
+NumMFs=4
+MF1='Low':'trimf',[40 40 60]
+MF2='Normal':'gaussmf',[10 75]
+MF3='Elevated':'trapmf',[90 100 110 120]
+MF4='High':'trimf',[110 150 150]
+
+[Input4]
+Name='CO2 Level'
+Range=[0 5000]
+NumMFs=3
+MF1='Normal':'trimf',[250 300 1200]
+MF2='Dangerous':'trapmf',[1000 2000 2500 5000]
+MF3='Deadly':'trimf',[4000 4500 50000]
+
+[Input5]
+Name='Time'
+Range=[0 24]
+NumMFs=5
+MF1='Early Morning ':'trimf',[0 3 6]
+MF2='Morning':'trapmf',[5 7 10 12]
+MF3='Afternoon':'trapmf',[11 13 16 18]
+MF4='Evening':'trapmf',[17 19 21 23]
+MF5='Night':'trimf',[22 24 24]
+
+[Input6]
+Name='Room Temperature'
+Range=[10 40]
+NumMFs=5
+MF1='Cold':'trimf',[10 10 18]
+MF2='Cool':'trapmf',[15 18 22 24]
+MF3='Comfortable':'gaussmf',[2 23]
+MF4='Warm':'trapmf',[22 25 28 30]
+MF5='Hot':'trimf',[28 35 40]
+
+[Input7]
+Name='Weather Conditions'
+Range=[0 1]
+NumMFs=5
+MF1='Clear':'trimf',[0 0 0.2]
+MF2='Partly Cloudy ':'trapmf',[0.1 0.3 0.4 0.5]
+MF3='Cloudy':'trapmf',[0.4 0.5 0.6 0.7]
+MF4='Rainy':'trapmf',[0.6 0.7 0.8 0.9]
+MF5='Stormy':'trimf',[0.8 1 1]
+
+[Input8]
+Name='Mood'
+Range=[0 1]
+NumMFs=5
+MF1='Sad':'trimf',[0 0 0.2]
+MF2='Calm':'trapmf',[0.1 0.3 0.4 0.5]
+MF3='Neutral':'trimf',[0.4 0.5 0.6]
+MF4='Happy':'trimf',[0.6 0.7 0.8]
+MF5='Excited':'trimf',[0.8 1 1]
+
+[Input9]
+Name='Voice Control'
+Range=[0 3]
+NumMFs=6
+MF1='Door Close':'trimf',[0 0.25 0.5]
+MF2='Door Open':'trimf',[0.5 0.75 1]
+MF3='Window Close':'trimf',[1 1.25 1.5]
+MF4='Window Open':'trimf',[1.5 1.75 2]
+MF5='Ramp Down':'trimf',[2 2.25 2.5]
+MF6='Ramp Up':'trimf',[2.5 2.75 3]
+
+[Input10]
+Name='Common Area Presence'
+Range=[0 1]
+NumMFs=2
+MF1='Absent':'trimf',[0 0.25 0.5]
+MF2='Present':'trimf',[0.5 0.75 1]
+
+[Output1]
+Name='Temperature Control'
+Range=[0 60]
+NumMFs=5
+MF1='Very Low':'trimf',[0 0 12]
+MF2='Low':'trimf',[12 18 24]
+MF3='Medium':'trimf',[24 30 36]
+MF4='High':'trimf',[36 42 48]
+MF5='Very High':'trimf',[48 60 60]
+
+[Output2]
+Name='Windows'
+Range=[0 100]
+NumMFs=3
+MF1='Closed':'trimf',[0 17 33]
+MF2='Half Open':'trimf',[33 50 66]
+MF3='Open':'trimf',[66 83 100]
+
+[Output3]
+Name='Lighting'
+Range=[0 100]
+NumMFs=4
+MF1='Off':'trimf',[0 12.5 25]
+MF2='Dim':'trimf',[25 37.5 50]
+MF3='Normal':'trimf',[50 62.5 75]
+MF4='Bright':'trimf',[75 87.5 100]
+
+[Output4]
+Name='Ramp'
+Range=[0 1]
+NumMFs=2
+MF1='Inactive':'trimf',[0 0.25 0.5]
+MF2='Active':'trimf',[0.5 0.75 1]
+
+[Output5]
+Name='Door'
+Range=[0 1]
+NumMFs=2
+MF1='Close':'trimf',[0 0.25 0.5]
+MF2='Open':'trimf',[0.5 0.75 1]
+
+[Output6]
+Name='Volume'
+Range=[0 100]
+NumMFs=4
+MF1='Off':'trimf',[0 12.5 25]
+MF2='Low':'trimf',[25 37.5 50]
+MF3='Medium':'trimf',[50 62.5 75]
+MF4='High':'trimf',[75 87.5 100]
+
+[Output7]
+Name='Device Power'
+Range=[0 100]
+NumMFs=3
+MF1='Off':'trimf',[0 17 33]
+MF2='Standby':'trimf',[33 50 66]
+MF3='On':'trimf',[66 83 100]
+
+[Output8]
+Name='Smoke Alarm'
+Range=[0 1]
+NumMFs=2
+MF1='Off':'trimf',[0 0.25 0.5]
+MF2='On':'trimf',[0.5 0.75 1]
+
+[Output9]
+Name='Health Alarm'
+Range=[0 1]
+NumMFs=3
+MF1='Normal':'trimf',[0 0 0.416667]
+MF2='Warning':'trimf',[0.0833333333333333 0.5 0.916666666666667]
+MF3='Critical':'trimf',[0.583333 1 1]
+
+[Rules]
+0 0 0 3 0 0 0 0 0 0, 0 0 0 0 0 0 0 0 3 (1) : 1
+0 5 4 0 0 0 0 0 0 0, 0 0 0 0 0 0 0 0 3 (0.95) : 1
+3 0 3 0 0 0 0 0 0 0, 0 0 0 0 0 0 0 0 3 (0.9) : 1
+0 3 0 0 0 0 0 0 0 0, 0 0 0 0 0 0 0 0 2 (0.8) : 2
+0 4 0 0 0 0 0 0 0 0, 0 0 0 0 0 0 0 0 2 (0.8) : 1
+0 0 3 0 0 0 0 0 0 0, 0 0 0 0 0 0 0 0 2 (0.8) : 1
+-3 2 -4 -3 0 0 0 0 0 0, 0 0 0 0 0 0 0 0 1 (0.7) : 1
+0 0 0 3 0 0 0 0 0 0, 0 0 0 0 0 0 0 2 0 (1) : 1
+0 0 0 2 0 0 0 0 0 0, 0 0 0 0 0 0 0 2 0 (0.9) : 1
+0 0 0 1 0 0 0 0 0 0, 0 0 0 0 0 0 0 1 0 (0.7) : 1
+1 0 0 0 0 1 0 0 0 0, 5 0 0 0 0 0 0 0 0 (0.8) : 1
+1 0 0 0 0 2 0 0 0 0, 5 0 0 0 0 0 0 0 0 (0.75) : 1
+1 0 0 0 0 3 0 0 0 0, 4 0 0 0 0 0 0 0 0 (0.7) : 1
+2 0 0 0 0 3 0 0 0 0, 3 0 0 0 0 0 0 0 0 (0.6) : 1
+3 0 0 0 0 0 0 0 0 0, 2 0 0 0 0 0 0 0 0 (0.5) : 1
+0 0 0 0 0 5 0 0 0 0, 1 0 0 0 0 0 0 0 0 (0.4) : 1
+0 0 0 0 0 0 0 4 0 0, 0 0 4 0 0 0 0 0 0 (0.7) : 1
+0 0 0 0 0 0 0 5 0 0, 0 0 4 0 0 0 0 0 0 (0.7) : 1
+0 0 0 0 2 0 0 0 0 0, 0 0 3 0 0 0 0 0 0 (0.6) : 1
+0 0 0 0 1 0 0 0 0 0, 0 0 3 0 0 0 0 0 0 (0.6) : 1
+0 0 0 0 3 0 0 0 0 0, 0 0 3 0 0 0 0 0 0 (0.6) : 1
+0 0 0 0 4 0 0 0 0 0, 0 0 3 0 0 0 0 0 0 (0.6) : 1
+0 0 0 0 0 0 0 3 0 0, 0 0 3 0 0 0 0 0 0 (0.6) : 1
+0 0 0 0 0 0 0 2 0 0, 0 0 3 0 0 0 0 0 0 (0.6) : 1
+0 0 0 0 5 0 0 0 0 0, 0 0 2 0 0 0 0 0 0 (0.4) : 1
+0 0 0 0 0 0 0 1 0 0, 0 0 2 0 0 0 0 0 0 (0.4) : 1
+0 0 0 0 0 0 0 0 0 1, 0 0 1 0 0 0 0 0 0 (0.2) : 1
+0 0 0 0 5 0 0 0 0 1, 0 0 1 0 0 0 0 0 0 (0.2) : 1
+0 0 0 0 0 0 0 0 6 0, 0 0 0 2 0 0 0 0 0 (0.8) : 1
+0 0 0 0 0 0 0 0 5 0, 0 0 0 1 0 0 0 0 0 (0.8) : 1
+0 0 0 0 0 0 0 0 2 0, 0 0 0 0 2 0 0 0 0 (0.9) : 1
+0 0 0 0 0 0 0 0 1 0, 0 0 0 0 1 0 0 0 0 (0.9) : 1
+0 0 0 0 0 0 0 0 3 0, 0 1 0 0 0 0 0 0 0 (0.9) : 1
+0 0 0 0 0 0 0 0 4 0, 0 3 0 0 0 0 0 0 0 (0.9) : 1
+0 0 0 0 0 0 5 0 0 0, 0 1 0 0 0 0 0 0 0 (0.8) : 1
+0 0 0 2 0 0 0 0 0 0, 0 2 0 0 0 0 0 0 0 (0.9) : 1
+0 0 0 3 0 0 0 0 0 0, 0 3 0 0 0 0 0 0 0 (0.9) : 1
+0 0 0 1 0 0 0 0 0 0, 0 2 0 0 0 0 0 0 0 (0.5) : 1
+0 0 0 0 0 0 2 0 0 0, 0 3 0 0 0 0 0 0 0 (0.5) : 1
+0 0 0 0 0 0 0 5 0 0, 0 0 0 0 0 4 0 0 0 (0.6) : 1
+0 0 0 0 0 0 0 4 0 0, 0 0 0 0 0 3 0 0 0 (0.5) : 1
+0 0 0 0 0 0 0 3 0 0, 0 0 0 0 0 3 0 0 0 (0.5) : 1
+0 0 0 0 0 0 0 2 0 0, 0 0 0 0 0 2 0 0 0 (0.5) : 1
+0 0 0 0 0 0 0 1 0 0, 0 0 0 0 0 2 0 0 0 (0.4) : 1
+0 0 0 0 5 0 0 0 0 1, 0 0 0 0 0 1 0 0 0 (0.1) : 2
+0 0 0 0 2 0 0 0 0 0, 0 0 0 0 0 0 3 0 0 (0.5) : 1
+0 0 0 0 5 0 0 0 0 1, 0 0 0 0 0 0 1 0 0 (0.5) : 1
