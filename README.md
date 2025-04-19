@@ -18,7 +18,6 @@ This repository contains two major projects exploring predictive modeling and fu
 | `diabetes_prediction.ipynb` | Task 1: ML-based diabetes prediction with GPC, SVM, RF, LR, GBC |
 | `flc_controller_design.fis` | Task 2: Fuzzy logic controller MATLAB file |
 | `optimization_algorithms.ipynb` | Task 2: GA, PSO, SA on benchmark functions |
-| `7135 - Modelling Report Full.docx` | Full report with background, methods, results, and insights |
 
 ---
 
