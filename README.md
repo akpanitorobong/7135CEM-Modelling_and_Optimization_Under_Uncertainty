@@ -1,5 +1,5 @@
 # 7135CEM-Modelling_and_Optimization_Under_Uncertainty
-Code for MOUU module Coursework
+Coursework Code for MOUU module in Coventry University
 
 Task 1 - Diabetes Prediction using Machine Learning
 This project evaluates five machine learning models—Gaussian Process Classifier, Logistic Regression, Random Forest, Support Vector Machine, and Gradient Boosting—for predicting diabetes risk using health indicator data. Models are compared based on accuracy, precision, recall, F1-score, AUC-ROC, and execution time. Results show that SVM and Gradient Boosting provide the highest accuracy, while Logistic Regression is the most computationally efficient. The project uses Python and Scikit-Learn for model implementation. 
